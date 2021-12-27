@@ -4,6 +4,65 @@
     <%- include('../partials/_head.ejs') %>
 </head>
 <body>
-    <h1>Yu-Gi-Oh!</h1>
+    <header>
+        <%- include('../partials/_nav.ejs') %>
+    </header>
+    <main>
+        <section>
+            <div class="container">
+                <section>
+                    <div class="search">
+                        <div class="search-bar">
+                            <div class="search-bar__container">
+                                <input type="text" autocomplete="off" spellcheck="false" placeholder="Search cards" id="search-bar" value="">
+                            </div>
+                        </div>
+                        <div class="search-button">
+                            <div class="search-button__container">
+                                <button id="search-button">
+                                    <i class='bx bx-search'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- <section>
+                    <div class="filter-controls">
+                        <div class="filter-controls__container">
+                            <div class="filter-controls__item">
+                                <div class="filter-controls__item__inner enabled">
+                                    Monsters
+                                </div>
+                            </div>
+                            <div class="filter-controls__item">
+                                <div class="filter-controls__item__inner">
+                                    Spells
+                                </div>
+                            </div>
+                            <div class="filter-controls__item">
+                                <div class="filter-controls__item__inner">
+                                    Traps
+                                </div>
+                            </div>
+                            <div class="filter-controls__item">
+                                <div class="filter-controls__item__inner">
+                                    Extra Deck
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> -->
+                <section>
+                    <div class="card-grid">
+                        <div class="card-grid__container">
+                            <!-- Cards go here when a GET request is made -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/search_cards.js" async></script>
 </body>
 </html>

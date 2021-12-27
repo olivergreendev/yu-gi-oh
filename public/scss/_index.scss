@@ -1,0 +1,111 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    .search-bar {
+        width: 100%;
+        margin-right: 10px;
+        &__container {
+            input {
+                background-color: $primary-blue-light;
+                border: 2px solid $primary-blue-highlight;
+                padding: 15px 20px;
+                width: 100%;
+                border-radius: 8px;
+                font-family: inherit;
+                font-size: 16px;
+                color: white;
+            }
+        }
+    }
+    .search-button {
+        &__container {
+            height: 55px;
+            button#search-button {
+                background-color: #0A243D;
+                border: 2px solid #385979;
+                padding: 15px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                height: 55px;
+                color: white;
+            }
+        }
+    }
+}
+.filter-controls {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item {
+        padding: 10px 5px;
+        flex: 1;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+        &__inner {
+            padding: 20px;
+            white-space: nowrap;
+            background-color: $primary-blue-light;
+            border-radius: 8px;
+            border: 2px solid $primary-blue-highlight;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            &.enabled {
+                background-color: $primary-blue-highlight;
+            }
+        }
+    }
+}
+.card-grid {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 0.75rem;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+    }
+    &__item {
+        position: relative;
+        transition: transform 0.15s ease;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 140%;
+        }
+        &__content-wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        &__content-wrapper > .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: $primary-blue-highlight;
+            background-color: $primary-blue-light;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.navbar {
+    width: 100%;
+    background-color: $primary-blue-dark;
+    box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.3);
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+        color: white;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .nav-logo {
+        font-size: 30px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .nav-links {
+        list-style-type: none;
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .info-icon {
+            font-size: 30px;
+        }
+    }
+}
