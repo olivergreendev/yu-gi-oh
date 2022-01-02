@@ -1,0 +1,60 @@
+.card {
+    width: 100%;
+    background-color: rgba(0, 20, 40, 0.5);
+    border-radius: 16px;
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__image {
+        padding: 30px;
+        img {
+            width: 250px;
+            height: 365px;
+        }
+    }
+    &__details {
+        flex: 1;
+        padding: 30px;
+    }
+    &__title {
+        margin-bottom: 15px;
+    }
+    &__attribute-level {
+        display: flex;
+        color: white;
+        margin-bottom: 15px;
+        img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        span {
+            margin-right: 10px;
+        }
+    }
+    &__attribute {
+        display: flex;
+        align-items: center;
+    }
+    &__level {
+        display: flex;
+        align-items: center;
+    }
+    &__type {
+        color: white;
+        margin-bottom: 15px;
+    }
+    &__description {
+        margin-bottom: 15px;
+        color: white;
+    }
+    &__atk-def {
+        color: white;
+    }
+    &__atk, &__def {
+        display: inline;
+    }
+}

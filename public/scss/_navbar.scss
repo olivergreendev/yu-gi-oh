@@ -19,13 +19,12 @@
     .nav-links {
         list-style-type: none;
         &__link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
-        }
-        .info-icon {
             font-size: 30px;
+            display: inline;
+        }
+        &__link:not(:last-child) {
+            margin-right: 10px;
         }
     }
 }

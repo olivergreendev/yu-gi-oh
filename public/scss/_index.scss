@@ -67,23 +67,28 @@
 }
 .card-grid {
     &__container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 0.75rem;
-        gap: 0.75rem;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        // grid-gap: 0.75rem;
+        // gap: 0.75rem;
+        display: flex;
+        flex-flow: row wrap;
         padding: 0.75rem 0;
     }
     &__item {
         position: relative;
+        width: 105px;
+        height: 147px;
         transition: transform 0.15s ease;
+        margin: 5px;
         cursor: pointer;
         &:hover {
             transform: scale(1.05);
         }
         &::after {
-            content: "";
-            display: block;
-            padding-bottom: 140%;
+            // content: "";
+            // display: block;
+            // padding-bottom: 140%;
         }
         &__content-wrapper {
             position: absolute;

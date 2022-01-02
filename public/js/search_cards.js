@@ -14,12 +14,28 @@ $('#search-button').bind('click', function() {
         async: false,
         success: function(result) {
             let cards = result;
+            let length;
+            cards.data.length < 54 ? (length = cards.data.length) : (length = 54);
             if (cards.data) {
-                for (let i = 0; i < cards.data.length; i++) {
-                    outputHTML += `<div class="card-grid__item"><div class="card-grid__item__content-wrapper"><div class="content"><img src="${cards.data[i].card_images[0].image_url_small}"></div></div></div>`;
+                for (let i = 0; i < length; i++) { // cards.data.length
+                    outputHTML += `<div class="card-grid__item">
+                                        <div class="card-grid__item__content-wrapper">
+                                            <div class="content">
+                                                <a href="/cards/${cards.data[i].name}">
+                                                    <img src="${cards.data[i].card_images[0].image_url_small}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>`;
                 }
             }
             $(".card-grid__container").append(outputHTML);
         }
     });
+});
+searchBar.keyup(function(event) {
+    let code = event.keycode || event.which;
+    if (code === 13) {
+        $('#search-button').click();
+    }
 });

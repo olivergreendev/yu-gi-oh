@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/_head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/_nav.ejs') %>
+    </header>
+    <main>
+        <section>
+            <div class="container">
+                <section>
+                    <div class="card">
+                        <div class="card__container">
+                            <div class="card__image">
+                                <img src="/img/yugioh-card-back.jpg" alt="" id="card-image">
+                            </div>
+                            <div class="card__details">
+                                <div class="card__title">
+                                    <h1 class="large-heading" id="card-title"><%= data.name %></h1>
+                                </div>
+                                <div class="card__attribute-level">
+                                    <div class="card__attribute">
+                                        <img src="" alt="" id="card-attribute-icon">
+                                        <span id="card-attribute"></span>
+                                    </div>
+                                    <div class="card__level">
+                                        <img src="" alt="" id="card-level-icon">
+                                        <span id="card-level"></span>
+                                    </div>
+                                </div>
+                                <div class="card__type">
+                                    <span id="card-type"></span>
+                                </div>
+                                <div class="card__description">
+                                    <span id="card-description"></span>
+                                </div>
+                                <div class="card__atk-def" id="card-atk-def">
+                                    <div class="card__atk">
+                                        <span id="card-atk"></span>
+                                    </div>
+                                    <div class="card__def">
+                                        <span id="card-def"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/card_details.js" async></script>
+</body>
+</html>
