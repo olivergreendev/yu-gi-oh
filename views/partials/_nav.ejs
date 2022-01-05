@@ -1,14 +1,22 @@
 <nav class="navbar">
     <div class="navbar__inner">
         <a href="/">
-            <span class="nav-logo">Yu-Gi-Oh!</span>
+            <!-- <span class="nav-logo">Yu-Gi-Oh!</span> -->
+            <div class="helper">
+                <img src="/img/yu-gi-oh_logo.png" alt="Yu-Gi-Oh!">
+            </div>
         </a>
-        <ul class="nav-links">
+       <ul class="nav-links">
             <li class="nav-links__link">
-                <i class='bx bx-search'></i>
+                <div class="content">
+                    <!-- <i class='bx bx-search' id="nav-search-button"></i> -->
+                    <input type="text" value="" placeholder="Search cards" autocomplete="off" spellcheck="false" id="nav-search-bar">
+                </div>
             </li>
             <li class="nav-links__link">
-                <i class='bx bxs-info-circle'></i>
+                <div class="content">
+                    <i class='bx bxs-info-circle'></i>
+                </div>
             </li>
         </ul>
     </div>

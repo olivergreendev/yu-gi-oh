@@ -1,0 +1,26 @@
+/**
+* Mobile Devices: 320px - 480px
+* Tablet Devices: 481px - 768px
+* Small Screens: 769px - 1024px
+* Large Devices: 1025px - 1200px
+* Extra Large Devices: 1201px and above
+**/
+@media only screen and (max-width: 768px) {
+    .navbar {
+        &__inner {
+            .nav-links {
+                &__link:nth-child(1) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .card {
+        &__container {
+            flex-direction: column;
+        }
+        &__image {
+            text-align: center;
+        }
+    }
+}

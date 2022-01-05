@@ -9,13 +9,12 @@ $('#search-button').bind('click', function() {
     $.ajax({
         type: "GET",
         url: `https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${data}&desc=${data}`,
-        data: data,
         dataType: "json",
         async: false,
         success: function(result) {
             let cards = result;
             let length;
-            cards.data.length < 54 ? (length = cards.data.length) : (length = 54);
+            cards.data.length < 50 ? (length = cards.data.length) : (length = 50);
             if (cards.data) {
                 for (let i = 0; i < length; i++) { // cards.data.length
                     outputHTML += `<div class="card-grid__item">

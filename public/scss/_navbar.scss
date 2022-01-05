@@ -10,6 +10,15 @@
         color: white;
         max-width: 1200px;
         margin: 0 auto;
+        .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            img {
+                width: 160px;
+                vertical-align: middle;
+            }
+        }
     }
     .nav-logo {
         font-size: 30px;
@@ -17,14 +26,37 @@
         user-select: none;
     }
     .nav-links {
-        list-style-type: none;
+        list-style: none;
+        display: flex;
+        flex-flow: row nowrap;
+        flex: 1;
+        justify-content: end;
         &__link {
             cursor: pointer;
             font-size: 30px;
-            display: inline;
+            .content {
+                display: flex;
+                flex-flow: row nowrap;
+                i {
+                    line-height: 49px;
+                }
+                input {
+                    padding: 12px 15px;
+                    border-radius: 6px;
+                    background-color: #0A243D;
+                    border: 2px solid #385979;
+                    color: white;
+                    font-family: inherit;
+                    font-size: 16px;
+                    width: 350px;
+                }
+            }
         }
-        &__link:not(:last-child) {
-            margin-right: 10px;
+        &__link:nth-child(1) > div:nth-child(1) > i:nth-child(1) {
+            margin: 0 10px;
+        }
+        &__link:nth-child(2) > div:nth-child(1) > i:nth-child(1) {
+            margin: 0 0 0 10px;
         }
     }
 }
