@@ -13,7 +13,7 @@ navSearchBar.keyup(function(event) {
                 $('#card-title').text(name);
                 const attribute = response.data[0].attribute;
                 $('#card-attribute').text(attribute);
-                $('#card-attribute-icon').attr("src", `/img/attributes/${attribute}.png`);
+                $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.toLowerCase()}.png`);
 
                 $('#card-atk-def').css({"display": "block"});
                 $('#card-level').css({"display": "block"});
