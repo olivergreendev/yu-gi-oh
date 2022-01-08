@@ -10,7 +10,8 @@ $.ajax({
     success: function(response) {
         const attribute = response.data[0].attribute;
         $('#card-attribute').text(attribute);
-        $('#card-attribute-icon').attr("src", `/img/attributes/${attribute}.png`);
+        // convert to lower case so the string is matched with the image name
+        $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.toLowerCase()}.png`);
 
         const type = response.data[0].type;
         const race = response.data[0].race;
@@ -37,8 +38,10 @@ $.ajax({
         }
         else if (type === "Spell Card" || type === "Trap Card") {
             $('#card-attribute').text(type.replace(' Card', ''));
+            // convert to lower case so the string is matched with the image name
             $('#card-attribute-icon').attr("src", `/img/attributes/${type.replace(' Card', '')}.png`);
             $('#card-level').text(race);
+            // convert to lower case so the string is matched with the image name
             $('#card-level-icon').attr("src", `/img/symbols/${race}.png`);
             $('#card-atk-def').css({"display": "none"});
         }
