@@ -9,57 +9,64 @@ navSearchBar.keyup(function(event) {
             dataType: "json",
             async: false,
             success: function(response) {
-                const name = response.data[0].name;
-                $('#card-title').text(name);
-                const attribute = response.data[0].attribute;
-                $('#card-attribute').text(attribute);
-                $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.toLowerCase()}.png`);
-
-                $('#card-atk-def').css({"display": "block"});
-                $('#card-level').css({"display": "block"});
+                const data = response.data[0];
+                const name = data.name;
+                const type = data.type;
+                const description = data.desc;
+                const image = data.card_images[0].image_url;
                 $('#card-level-icon').css({"display": "block"});
-
-                const race = response.data[0].race;
-                const type = response.data[0].type;
-                const race_type = `[${race}/${type}]`;
-                $('#card-type').text(race_type);
-
+                $('#card-level').css({"display": "block"});
+                $('#card-type').css({"display": "block"});
+                $('#card-atk-def').css({"display": "block"});
+                // Add card artwork to localStorage
+                const cardArtwork = data.card_images;
+                localStorage.setItem(`${data.name}`, JSON.stringify(cardArtwork));
+                artwork = JSON.parse(localStorage.getItem(`${name}`));
+                c = 0;
+                // Monster, Synchro, XYZ
                 if (type !== "Spell Card" && type !== "Trap Card" && type !== "Link Monster") {
-                    const atk = response.data[0].atk;
+                    const attribute = data.attribute;
+                    const level = data.level;
+                    const race = data.race;
+                    const type = data.type;
+                    const race_type = `${race} / ${type}`;
+                    const atk = data.atk;
+                    const def = data.def;
+                    $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.toLowerCase()}.png`);
+                    $('#card-attribute').text(attribute);
+                    type === "XYZ Monster" ? $('#card-level-icon').attr("src", `/img/level-rank/rank.png`) : $('#card-level-icon').attr("src", `/img/level-rank/level.png`);
+                    $('#card-level').text(level);
+                    $('#card-type').text(race_type);
                     $('#card-atk').text(`ATK / ${atk}`);
-                    const def = response.data[0].def;
                     $('#card-def').text(`DEF / ${def}`);
-
-                    if (type === "XYZ Monster") {
-                        $('#card-level-icon').attr("src", `/img/level-rank/rank.png`);
-                    } else {
-                        $('#card-level-icon').attr("src", `/img/level-rank/level.png`);
-                    }
                 }
+                // Link
                 else if (type === "Link Monster") {
-                    const atk = response.data[0].atk;
-                    $('#card-atk').text(`ATK / ${atk}`);
-                    const linkval = response.data[0].linkval;
-                    $('#card-def').text(`LINK - ${linkval}`);
-                    $('#card-level').css({"display": "none"});
+                    const attribute = data.attribute;
+                    const atk = data.atk;
+                    const linkVal = data.linkval;
+                    $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.toLowerCase()}.png`);
+                    $('#card-attribute').text(attribute);
                     $('#card-level-icon').css({"display": "none"});
+                    $('#card-level').css({"display": "none"});
+                    $('#card-atk').text(`ATK / ${atk}`);
+                    $('#card-def').text(`LINK - ${linkVal}`);
                 }
-                else if (type === "Spell Card" || type === "Trap Card") {
-                    $('#card-attribute').text(type.replace(' Card', ''));
-                    $('#card-attribute-icon').attr("src", `/img/attributes/${type.replace(' Card', '')}.png`);
-                    $('#card-level').text(race);
-                    $('#card-level-icon').attr("src", `/img/symbols/${race}.png`);
+                // Trap, Spell
+                else if (type === "Trap Card" || type === "Spell Card") {
+                    const attribute = data.type;
+                    const trap_spell_type = data.race;
+                    $('#card-attribute-icon').attr("src", `/img/attributes/${attribute.replace(" Card", "").toLowerCase()}.png`);
+                    $('#card-attribute').text(attribute);
+                    $('#card-level-icon').attr("src", `/img/symbols/${trap_spell_type.toLowerCase()}.png`);
+                    $('#card-level').text(trap_spell_type);
                     $('#card-atk-def').css({"display": "none"});
+                    $('#card-type').css({"display": "none"});
                 }
 
-                const description = response.data[0].desc;
+                $('#card-title').text(name)
                 $('#card-description').text(description);
-
-                const image = response.data[0].card_images[0].image_url;
                 $('#card-image').attr('src', `${image}`);
-
-                const level = response.data[0].level;
-                $('#card-level').text(level);
 
                 document.title = `${name} || Yu-Gi-Oh!`;
                 history.pushState(undefined, '', name);

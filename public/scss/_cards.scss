@@ -14,6 +14,20 @@
             width: 250px;
             height: 365px;
         }
+        .alt-artwork-controls {
+            text-align: center;
+            padding: 10px 0;
+            .btn-left, .btn-right {
+                display: inline-block;
+                background-color: #0A243D;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 12px;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
     }
     &__details {
         flex: 1;

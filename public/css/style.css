@@ -331,6 +331,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 365px;
 }
 
+.card__image .alt-artwork-controls {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.card__image .alt-artwork-controls .btn-left, .card__image .alt-artwork-controls .btn-right {
+  display: inline-block;
+  background-color: #0A243D;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .card__details {
   -webkit-box-flex: 1;
       -ms-flex: 1;
